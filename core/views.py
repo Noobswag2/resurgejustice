@@ -15,3 +15,15 @@ from django.shortcuts import render
 
 def contact(request):
     return render(request, 'contact.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
+def job_listings(request):
+    return render(request, 'job_listings.html')
+
+def mentor(request):
+    return render(request, 'mentor.html')
+
+def company(request):
+    return render(request, 'company.html')
