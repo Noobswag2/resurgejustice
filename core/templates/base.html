@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load static %}
   <meta charset="UTF-8">
   <title>{% block title %}ResurgeJustice{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+
   <header>
-    <h1>ResurgeJustice 🚀</h1>
-    <nav>
-        <a href="{% url 'home' %}">Home</a> 
-        <a href="{% url 'about' %}">About</a> 
-        <a href="{% url 'team' %}">Team</a> 
+    <div class="navbar">
+      <div class="logo">
+        <a href="{% url 'home' %}">ResurgeJustice</a>
+      </div>
+      <div class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'team' %}">Team</a>
         <a href="{% url 'contact' %}">Contact</a>
         <a href="{% url 'profile' %}">Profile</a>
         <a href="{% url 'job_listings' %}">Job Listings</a>
         <a href="{% url 'mentor' %}">Mentor</a>
         <a href="{% url 'company' %}">Company</a>
-      </nav>      
+      </div>
+    </div>
   </header>
 
   <main>
     {% block content %}
-    <!-- Content will go here -->
+    <!-- Page-specific content goes here -->
     {% endblock %}
   </main>
 
   <footer>
-    <p>&copy; 2025 ResurgeJustice. All rights reserved.</p>
+    <p style="text-align: center; padding: 1rem;">&copy; 2025 ResurgeJustice. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
