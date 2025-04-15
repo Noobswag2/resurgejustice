@@ -22,6 +22,14 @@
         <a href="{% url 'job_listings' %}">Job Listings</a>
         <a href="{% url 'mentor' %}">Mentor</a>
         <a href="{% url 'company' %}">Company</a>
+
+        {% if user.is_authenticated %}
+        <span>Welcome, {{ user.username }}</span>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
       </div>
     </div>
   </header>
