@@ -2,7 +2,10 @@
 {% block title %}Profile | ResurgeJustice{% endblock %}
 
 {% block content %}
-<h1>Welcome, User!</h1>
+<h1>Welcome, {{ user.username }}!</h1>
+
+<!-- Button to toggle edit mode -->
+<button id="editBtn">Edit Profile</button>
 
 <div>
   <p><strong>Available for Projects</strong> <span style="color: green;">●</span></p>
@@ -11,15 +14,54 @@
 
 <hr>
 
-<h2>Academic Education</h2>
-<p>[List or form for academic history]</p>
+<!-- Display Mode -->
+<div id="displayProfile">
+  <h2>Academic Education</h2>
+  <p>{{ profile.academic_education|linebreaks }}</p>
 
-<h2>Non-Formal Education</h2>
-<p>[Workshops, bootcamps, online courses, etc]</p>
+  <h2>Non-Formal Education</h2>
+  <p>{{ profile.non_formal_education|linebreaks }}</p>
 
-<h2>Experience</h2>
-<p>[Past job roles]</p>
+  <h2>Experience</h2>
+  <p>{{ profile.experience|linebreaks }}</p>
 
-<h2>Certifications</h2>
-<p>[Upload/view certifications]</p>
+  <h2>Certifications</h2>
+  <p>{{ profile.certifications|linebreaks }}</p>
+</div>
+
+<!-- Edit Form (Hidden by default) -->
+<form method="POST" id="editForm" style="display: none;">
+  {% csrf_token %}
+
+  <h2>Academic Education</h2>
+  <p>[List or form for academic history]</p>
+  <textarea name="academic_education" rows="3">{{ profile.academic_education }}</textarea>
+
+  <h2>Non-Formal Education</h2>
+  <p>[Workshops, bootcamps, online courses, etc]</p>
+  <textarea name="non_formal_education" rows="3">{{ profile.non_formal_education }}</textarea>
+
+  <h2>Experience</h2>
+  <p>[Past job roles]</p>
+  <textarea name="experience" rows="4">{{ profile.experience }}</textarea>
+
+  <h2>Certifications</h2>
+  <p>[Upload/view certifications]</p>
+  <textarea name="certifications" rows="3">{{ profile.certifications }}</textarea>
+
+  <br><br>
+  <button type="submit">Save Profile</button>
+</form>
+
+<script>
+  const editBtn = document.getElementById('editBtn');
+  const displayProfile = document.getElementById('displayProfile');
+  const editForm = document.getElementById('editForm');
+
+  editBtn.addEventListener('click', () => {
+    displayProfile.style.display = 'none';
+    editForm.style.display = 'block';
+    editBtn.style.display = 'none';
+  });
+</script>
 {% endblock %}
