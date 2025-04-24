@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ContactForm  
 
 def home(request):
     return render(request, 'home.html')
@@ -6,15 +7,19 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-from django.shortcuts import render
-
 def team(request):
     return render(request, 'team.html')
 
-from django.shortcuts import render
-
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)  
+            return redirect('contact')  
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
 
 def profile(request):
     return render(request, 'profile.html')

@@ -1,6 +1,21 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-  <h1>Company Page</h1>
-  <p>This page will provide info and resources for partner companies or employers looking to hire.</p>
+<h2>Contact Us</h2>
+
+<form method="POST" style="max-width: 600px; margin-bottom: 2rem;">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<h3>Reach Out to a Team Member</h3>
+<ul>
+  <li><strong>Krunal Patel:</strong> <a href="mailto:kpate237@charlotte.edu">kpate237@charlotte.edu</a></li>
+  <li><strong>Dylan Saks:</strong> <a href="mailto:dsaks@charlotte.edu">dsaks@charlotte.edu</a></li>
+  <li><strong>Jachimike Onwula:</strong> <a href="mailto:jonwuka@charlotte.edu">jonwuka@charlotte.edu</a></li>
+  <li><strong>Sophia Nguyen:</strong> <a href="mailto:snguye34@charlotte.edu">snguye34@charlotte.edu</a></li>
+</ul>
 {% endblock %}

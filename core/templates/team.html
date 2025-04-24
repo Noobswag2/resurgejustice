@@ -1,12 +1,32 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Meet the Team 👥</h1>
-<p>Here are the wonderful people behind ResurgeJustice.</p>
-<ul>
-  <li>Krunal Patel</li>
-  <li>Dylan Saks</li>
-  <li>Jachimike Onwuka</li>
-  <li>Sophia Nguyen</li>
-</ul>
+<h1>Meet Our Team</h1>
+
+<div class="team-container" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+  
+  <div class="member" style="border: 1px solid #ccc; padding: 1rem; width: 250px;">
+    <h3>Krunal Patel</h3>
+    <p><strong>Role:</strong> Career Support Specialist</p>
+    <p>Krunal assists users in resume building, job applications, and finding employment that fits their background and skills.</p>
+  </div>
+
+  <div class="member" style="border: 1px solid #ccc; padding: 1rem; width: 250px;">
+    <h3>Dylan Saks</h3>
+    <p><strong>Role:</strong> Mentorship Program Coordinator</p>
+    <p>Dylan connects individuals with mentors who can provide guidance, encouragement, and help navigate the job market after incarceration.</p>
+  </div>
+
+  <div class="member" style="border: 1px solid #ccc; padding: 1rem; width: 250px;">
+    <h3>Jachimike Onwula (Mike)</h3>
+    <p><strong>Role:</strong> Technical Access Facilitator</p>
+    <p>Jachimike helps users access digital tools, submit applications online, and build basic tech skills essential for modern workplaces.</p>
+  </div>
+
+  <div class="member" style="border: 1px solid #ccc; padding: 1rem; width: 250px;">
+    <h3>Sophia Nguyen</h3>
+    <p><strong>Role:</strong> Legal & Community Resources Liaison</p>
+    <p>Sophia provides access to legal aid contacts, reentry services, and connects users with local community organizations for support.</p>
+  </div>
+
+</div>
 {% endblock %}

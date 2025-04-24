@@ -10,5 +10,5 @@ urlpatterns = [
     path('profile/', profile_view, name='profile'),
     path('team/', views.team, name='team'),
     path('about/', views.about, name='about'),
-    # path('profile/suggestions/', views.get_profile_suggestions, name='profile_suggestions'),
+    path('job-listings/', views.job_listings, name='job_listings')
 ]
