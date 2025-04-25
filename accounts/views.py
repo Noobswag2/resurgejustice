@@ -51,25 +51,11 @@ def profile_view(request):
         'profile': profile
     })
 
-# def get_profile_suggestions(request):
-#     field = request.GET.get('field', '')
-#     if field not in ['academic_education', 'non_formal_education', 'experience', 'certifications']:
-#         return JsonResponse({'suggestions': []})
-    
-#     # Get unique values from this field across all profiles
-#     # Split by newlines to get individual entries
-#     values = set()
-#     for profile in UserProfile.objects.all():
-#         field_value = getattr(profile, field, '')
-#         if field_value:
-#             # Split multi-line entries into individual items
-#             items = [item.strip() for item in field_value.split('\n') if item.strip()]
-#             values.update(items)
-    
-#     return JsonResponse({'suggestions': list(values)})
-
 def team(request) :
     return render(request, 'team.html')
 
 def about(request) :
     return render(request, 'about.html')
+
+def job_listings(request):
+    return render(request, 'job_listings.html')
