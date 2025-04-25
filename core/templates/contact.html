@@ -1,17 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="contact-section">
+<div class="contact-section" style="padding: 40px 20px; text-align: center;">
   <h1>Contact Us</h1>
-  <p>Have questions? Reach out to us here.</p>
+  <p style="margin-bottom: 30px;">Have questions? Reach out to us below — we’re here to support you!</p>
 
-  <ul>
-    <li><strong>Krunal Patel</strong> – <a href="mailto:kpate237@charlotte.edu">kpate237@charlotte.edu</a></li>
-    <li><strong>Dylan Saks</strong> – <a href="mailto:dsaks@charlotte.edu">dsaks@charlotte.edu</a></li>
-    <li><strong>Jachimike Onwula</strong> – <a href="mailto:jonwuka@charlotte.edu">jonwuka@charlotte.edu</a></li>
-    <li><strong>Sophia Nguyen</strong> – <a href="mailto:snguye34@charlotte.edu">snguye34@charlotte.edu</a></li>
-  </ul>
-
-  <p>We’re here to support and answer any questions you may have!</p>
+  <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+    <ul style="list-style-type: none; padding: 0;">
+      <li style="margin-bottom: 15px;">
+        <strong>Krunal Patel</strong> – 
+        <a href="mailto:kpate237@charlotte.edu">kpate237@charlotte.edu</a>
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong>Dylan Saks</strong> – 
+        <a href="mailto:dsaks@charlotte.edu">dsaks@charlotte.edu</a>
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong>Jachimike Onwula</strong> – 
+        <a href="mailto:jonwuka@charlotte.edu">jonwuka@charlotte.edu</a>
+      </li>
+      <li style="margin-bottom: 15px;">
+        <strong>Sophia Nguyen</strong> – 
+        <a href="mailto:snguye34@charlotte.edu">snguye34@charlotte.edu</a>
+      </li>
+    </ul>
+    <p style="margin-top: 30px;">We're happy to answer any questions you may have!</p>
+  </div>
 </div>
+
+<hr style="margin: 40px 0;">
+
+<div style="max-width: 900px; margin: 0 auto; text-align: center; padding-bottom: 40px;">
+  <h2>Other Ways to Connect</h2>
+  <p>We're more than just an email away! You can also find us engaging with the community through events and outreach programs.</p>
+
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 30px; gap: 20px;">
+
+    <div style="flex: 1; min-width: 220px;">
+      <h3>📍 Visit Us</h3>
+      <p>UNC Charlotte<br>9201 University City Blvd<br>Charlotte, NC 28223</p>
+    </div>
+
+    <div style="flex: 1; min-width: 220px;">
+      <h3>📞 Call Us</h3>
+      <p>General Inquiries: (704) 687-0000<br>Mon–Fri, 9AM–5PM</p>
+    </div>
+
+    <div style="flex: 1; min-width: 220px;">
+      <h3>🌐 Social Media</h3>
+      <p>Facebook | Twitter | LinkedIn</p>
+    </div>
+
+  </div>
+</div>
+
 {% endblock %}

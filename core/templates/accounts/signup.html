@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+
 {% block content %}
-  <h2>Sign Up</h2>
+<div style="max-width: 400px; margin: 60px auto; padding: 30px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; margin-bottom: 25px;">Sign Up</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign Up</button>
+    <button type="submit" style="width: 100%; padding: 10px; background-color: #1c87c9; color: white; border: none; border-radius: 5px; margin-top: 15px;">
+      Sign Up
+    </button>
   </form>
+</div>
 {% endblock %}
