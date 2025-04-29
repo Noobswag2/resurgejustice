@@ -11,7 +11,9 @@
   <header>
     <div class="navbar">
       <div class="logo">
-        <a href="{% url 'home' %}">ResurgeJustice</a>
+        <a href="{% url 'home' %}" style="font-weight: bold; font-size: 20px; text-decoration: none; color: inherit;">
+          ResurgeJustice
+        </a>
       </div>
       <div class="nav-links">
         <a href="{% url 'home' %}">Home</a>
@@ -32,7 +34,7 @@
             Logout
           </button>
         </form>
-        
+
         {% else %}
         <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'signup' %}">Sign Up</a>
@@ -46,92 +48,6 @@
     <!-- Page-specific content goes here -->
     {% endblock %}
   </main>
-
-  <!-- <script>
-    // Function to fetch suggestions for a specific field
-    async function fetchSuggestions(field) {
-      const response = await fetch(`/accounts/profile/suggestions/?field=${field}`);
-      const data = await response.json();
-      return data.suggestions;
-    }
-  
-    // Function to initialize autocomplete for a field
-    function setupAutocomplete(fieldName) {
-      const textarea = document.querySelector(`textarea[name="${fieldName}"]`);
-      if (!textarea) return;
-      
-      // Create suggestions container
-      const suggestionsContainer = document.createElement('div');
-      suggestionsContainer.className = 'suggestions-container';
-      suggestionsContainer.style.display = 'none';
-      suggestionsContainer.style.position = 'absolute';
-      suggestionsContainer.style.border = '1px solid #ccc';
-      suggestionsContainer.style.background = 'white';
-      suggestionsContainer.style.maxHeight = '150px';
-      suggestionsContainer.style.overflow = 'auto';
-      suggestionsContainer.style.width = textarea.offsetWidth + 'px';
-      textarea.parentNode.insertBefore(suggestionsContainer, textarea.nextSibling);
-      
-      let suggestions = [];
-      
-      // Fetch suggestions when textarea is focused
-      textarea.addEventListener('focus', async () => {
-        suggestions = await fetchSuggestions(fieldName);
-      });
-      
-      // Show matching suggestions as user types
-      textarea.addEventListener('input', () => {
-        const currentText = textarea.value.toLowerCase();
-        const matchingSuggestions = suggestions.filter(s => 
-          s.toLowerCase().includes(currentText) && currentText.length > 0
-        );
-        
-        if (matchingSuggestions.length > 0) {
-          suggestionsContainer.innerHTML = '';
-          matchingSuggestions.forEach(suggestion => {
-            const div = document.createElement('div');
-            div.textContent = suggestion;
-            div.style.padding = '5px';
-            div.style.cursor = 'pointer';
-            
-            div.addEventListener('click', () => {
-              textarea.value = suggestion;
-              suggestionsContainer.style.display = 'none';
-            });
-            
-            div.addEventListener('mouseover', () => {
-              div.style.backgroundColor = '#f0f0f0';
-            });
-            
-            div.addEventListener('mouseout', () => {
-              div.style.backgroundColor = 'white';
-            });
-            
-            suggestionsContainer.appendChild(div);
-          });
-          suggestionsContainer.style.display = 'block';
-        } else {
-          suggestionsContainer.style.display = 'none';
-        }
-      });
-      
-      // Hide suggestions when clicking outside
-      document.addEventListener('click', (e) => {
-        if (e.target !== textarea && e.target !== suggestionsContainer) {
-          suggestionsContainer.style.display = 'none';
-        }
-      });
-    }
-  
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      // Setup autocomplete for each profile field
-      setupAutocomplete('academic_education');
-      setupAutocomplete('non_formal_education');
-      setupAutocomplete('experience');
-      setupAutocomplete('certifications');
-    });
-  </script> -->
 
   <footer>
     <p style="text-align: center; padding: 1rem;">&copy; 2025 ResurgeJustice. All rights reserved.</p>
