@@ -2,56 +2,83 @@
 {% block title %}Profile | ResurgeJustice{% endblock %}
 
 {% block content %}
-<h1>Welcome, {{ user.username }}!</h1>
+<div style="max-width: 800px; margin: 50px auto; padding: 20px;">
 
-<!-- Button to toggle edit mode -->
-<button id="editBtn">Edit Profile</button>
+  <h1 style="text-align: center;">Welcome, {{ user.username }}!</h1>
 
-<div>
-  <p><strong>Available for Projects</strong> <span style="color: green;">●</span></p>
-  <button>Contact</button>
+  <!-- Button to toggle edit mode -->
+  <div style="text-align: right; margin-top: 10px;">
+    <button id="editBtn" style="
+      padding: 8px 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    ">Edit Profile</button>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <p><strong>Available for Projects</strong> <span style="color: green;">●</span></p>
+    <a href="{% url 'contact' %}" style="
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    ">Contact</a>
+  </div>
+
+  <hr style="margin: 30px 0;">
+
+  <!-- Display Mode -->
+  <div id="displayProfile">
+    <h2>Academic Education</h2>
+    <p>{{ profile.academic_education|linebreaks }}</p>
+
+    <h2>Non-Formal Education</h2>
+    <p>{{ profile.non_formal_education|linebreaks }}</p>
+
+    <h2>Experience</h2>
+    <p>{{ profile.experience|linebreaks }}</p>
+
+    <h2>Certifications</h2>
+    <p>{{ profile.certifications|linebreaks }}</p>
+  </div>
+
+  <!-- Edit Form (Hidden by default) -->
+  <form method="POST" id="editForm" style="display: none; margin-top: 30px;">
+    {% csrf_token %}
+
+    <h2>Academic Education</h2>
+    <textarea name="academic_education" rows="3" style="width: 100%;">{{ profile.academic_education }}</textarea>
+
+    <h2>Non-Formal Education</h2>
+    <textarea name="non_formal_education" rows="3" style="width: 100%;">{{ profile.non_formal_education }}</textarea>
+
+    <h2>Experience</h2>
+    <textarea name="experience" rows="4" style="width: 100%;">{{ profile.experience }}</textarea>
+
+    <h2>Certifications</h2>
+    <textarea name="certifications" rows="3" style="width: 100%;">{{ profile.certifications }}</textarea>
+
+    <br><br>
+    <button type="submit" style="
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    ">Save Profile</button>
+  </form>
+
 </div>
-
-<hr>
-
-<!-- Display Mode -->
-<div id="displayProfile">
-  <h2>Academic Education</h2>
-  <p>{{ profile.academic_education|linebreaks }}</p>
-
-  <h2>Non-Formal Education</h2>
-  <p>{{ profile.non_formal_education|linebreaks }}</p>
-
-  <h2>Experience</h2>
-  <p>{{ profile.experience|linebreaks }}</p>
-
-  <h2>Certifications</h2>
-  <p>{{ profile.certifications|linebreaks }}</p>
-</div>
-
-<!-- Edit Form (Hidden by default) -->
-<form method="POST" id="editForm" style="display: none;">
-  {% csrf_token %}
-
-  <h2>Academic Education</h2>
-  <p>[List or form for academic history]</p>
-  <textarea name="academic_education" rows="3">{{ profile.academic_education }}</textarea>
-
-  <h2>Non-Formal Education</h2>
-  <p>[Workshops, bootcamps, online courses, etc]</p>
-  <textarea name="non_formal_education" rows="3">{{ profile.non_formal_education }}</textarea>
-
-  <h2>Experience</h2>
-  <p>[Past job roles]</p>
-  <textarea name="experience" rows="4">{{ profile.experience }}</textarea>
-
-  <h2>Certifications</h2>
-  <p>[Upload/view certifications]</p>
-  <textarea name="certifications" rows="3">{{ profile.certifications }}</textarea>
-
-  <br><br>
-  <button type="submit">Save Profile</button>
-</form>
 
 <script>
   const editBtn = document.getElementById('editBtn');

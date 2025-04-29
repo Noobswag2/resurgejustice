@@ -1,12 +1,62 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Welcome, User!</h1>
-  <h2>Job Listings</h2>
+  <div style="margin-top: 40px; text-align: center;">
+    <h1>Welcome, User!</h1>
+    <h2 style="margin-bottom: 30px;">Job Listings</h2>
 
-  <div style="border: 1px solid #ddd; padding: 20px; border-radius: 8px; width: 300px;">
-    <img src="https://via.placeholder.com/100" alt="Job" />
-    <h3>Job Title</h3>
-    <p>Short job description goes here.</p>
+    <div style="
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 60px;
+    ">
+      <!-- Card 1 -->
+      <div style="
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        text-align: left;
+      ">
+        <img src="https://via.placeholder.com/100" alt="Job" style="margin-bottom: 15px;" />
+        <h3 style="margin-top: 0;">Job Title</h3>
+        <p>Short job description goes here.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        text-align: left;
+      ">
+        <img src="https://via.placeholder.com/100" alt="Job" style="margin-bottom: 15px;" />
+        <h3 style="margin-top: 0;">Another Job</h3>
+        <p>Description placeholder for second job.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        text-align: left;
+      ">
+        <img src="https://via.placeholder.com/100" alt="Job" style="margin-bottom: 15px;" />
+        <h3 style="margin-top: 0;">Third Job</h3>
+        <p>More filler text your team can replace later.</p>
+      </div>
+    </div>
   </div>
 {% endblock %}
