@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import ContactForm  
+from .forms import ContactForm
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'home.html')
@@ -27,8 +28,15 @@ def profile(request):
 def job_listings(request):
     return render(request, 'job_listings.html')
 
+@login_required
 def mentor(request):
-    return render(request, 'mentor.html')
+    mentors = [
+        {'name': 'John Doe', 'description': 'Experienced Software Engineer and Mentor', 'image': 'mentor1.jpeg'},
+        {'name': 'Jane Smith', 'description': 'Career coach specializing in tech and startups', 'image': 'mentor2.jpeg'},
+        {'name': 'Emily Johnson', 'description': 'Helping ex-cons transition into tech careers', 'image': 'mentor3.webp'},
+        {'name': 'Dale Jackson', 'description': 'Helping ex-cons transition into corporate life',},
+    ]
+    return render(request, 'mentor.html', {'mentors': mentors})
 
 def company(request):
     return render(request, 'company.html')

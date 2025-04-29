@@ -1,12 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <h1>Mentor</h1>
-  <p>Find guidance and connect with mentors here.</p>
+<h1 style="font-size: 2rem; margin-bottom: 10px;">Mentors</h1>
+<p style="margin-bottom: 20px;">Find guidance and connect with mentors here.</p>
 
-  <div style="border: 1px solid #ddd; padding: 20px; border-radius: 8px; width: 300px;">
-    <h3>Mentor Name</h3>
-    <p>Short description or quote from the mentor.</p>
-    <button>Connect</button>
-  </div>
+<input type="text" id="searchInput" placeholder="Search mentors..." onkeyup="searchMentors()" style="margin-bottom: 20px; padding: 8px; width: 300px;">
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+  {% for mentor in mentors %}
+    
+    <div class="mentor-card" style="background-color: #fff; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+      <img src="{% static 'images/' %}{{ mentor.image }}" alt="{{ mentor.name }}" style="width: 100%; height: 200px; object-fit: contain; background-color: #f9f9f9;">
+      <h3>{{ mentor.name }}</h3>
+      <p>{{ mentor.description }}</p>
+      <button style="margin-top: 10px; background-color: #4CAF50; color: white; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer;">
+        Connect
+      </button>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+function searchMentors() {
+  var input, filter, cards, card, i, txtValue;
+  input = document.getElementById('searchInput');
+  filter = input.value.toUpperCase();
+  cards = document.getElementsByClassName('mentor-card');
+
+  for (i = 0; i < cards.length; i++) {
+    card = cards[i];
+    txtValue = card.textContent || card.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  }
+}
+</script>
+
 {% endblock %}
