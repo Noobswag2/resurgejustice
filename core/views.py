@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.contrib.auth.decorators import login_required
+from accounts.models import Company
 
 def home(request):
     return render(request, 'home.html')
@@ -39,4 +40,5 @@ def mentor(request):
     return render(request, 'mentor.html', {'mentors': mentors})
 
 def company(request):
-    return render(request, 'company.html')
+    companies = Company.objects.all()[:5]  # Show first 5 companies
+    return render(request, 'company.html', {'companies': companies})

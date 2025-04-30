@@ -41,3 +41,11 @@ class MentorRequest(models.Model):
 
     def __str__(self):
         return f"Request to {self.mentor_name} from {self.full_name}"
+
+class Company(models.Model):
+    name = models.CharField(max_length=255)
+    industry = models.CharField(max_length=255, blank=True)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name

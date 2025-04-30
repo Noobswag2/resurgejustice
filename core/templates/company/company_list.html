@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Companies</title>
+</head>
+<body>
+    <h1>Featured Companies</h1>
+    <ul>
+        {% for company in companies %}
+            <li>
+                <h2>{{ company.name }}</h2>
+                <p><strong>Industry:</strong> {{ company.industry }}</p>
+                <p>{{ company.description }}</p>
+            </li>
+        {% empty %}
+            <li>No companies found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import UserProfile, Job
 from .forms import UserProfileForm
+from .models import Company
 
 def signup(request):
     if request.method == 'POST':
@@ -96,3 +97,7 @@ def apply(request):
     else:
         form = ApplicationForm()
     return render(request, 'apply.html', {'form': form})
+
+def company_list(request):
+    companies = Company.objects.all()[:5]  # Show only a few
+    return render(request, 'company/company_list.html', {'companies': companies})
