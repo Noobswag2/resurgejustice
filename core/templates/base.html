@@ -11,12 +11,11 @@
   <header>
     <div class="navbar">
       <div class="logo">
-        <a href="{% url 'home' %}" style="font-weight: bold; font-size: 20px; text-decoration: none; color: inherit;">
+        <a href="{% url 'home' %}" style="font-weight: bold; font-size: 20px; text-decoration: none; color: white;">
           ResurgeJustice
         </a>
       </div>
-      <div class="nav-links">
-        <a href="{% url 'home' %}">Home</a>
+      <div class="nav-links"> 
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'team' %}">Team</a>
         <a href="{% url 'contact' %}">Contact</a>
@@ -25,7 +24,7 @@
         <a href="{% url 'company' %}">Company</a>
 
         {% if user.is_authenticated %}
-        <span>Welcome, {{ user.username }}</span>
+        <span style="color: white; margin: 0 1rem;">Welcome, {{ user.username }}</span>
         <a href="{% url 'profile' %}">Profile</a>
 
         <form action="{% url 'logout' %}" method="post" style="display:inline;">
